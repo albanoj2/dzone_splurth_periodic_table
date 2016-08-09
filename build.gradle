@@ -1,0 +1,54 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.8
+version = '1.0'
+
+buildscript {
+    repositories {
+        maven { url "http://jcenter.bintray.com" }
+    }
+}
+
+allprojects {
+    repositories {
+        maven { url "http://jcenter.bintray.com" }
+    }
+}
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Quickstart',
+                   'Implementation-Version': version
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'commons-collections', name: 'commons-collections', version: '3.2'
+    compile 'org.springframework:spring-core:4.3.2.RELEASE'
+    compile 'org.springframework:spring-beans:4.3.2.RELEASE'
+    compile 'org.springframework:spring-context:4.3.2.RELEASE'
+    compile group: 'org.springframework', name: 'spring-test', version: '4.3.2.RELEASE'
+    testCompile group: 'junit', name: 'junit', version: '4.+'
+}
+
+test {
+    systemProperties 'property': 'value'
+}
+
+uploadArchives {
+    repositories {
+       flatDir {
+           dirs 'repos'
+       }
+    }
+}
+
+task execute(type:JavaExec) {
+   main = 'com.splurth.periodictable.Application'
+   classpath = sourceSets.main.runtimeClasspath
+}
