@@ -84,4 +84,14 @@ public class SymbolGeneratorTest {
 	public void testGetFirstValidSymbolForInvalidElementEnsureEmptyString () {
 		assertEquals(this.generator.getFirstValidSymbol("X"), "");
 	}
+	
+	@Test
+	public void testGetValidSymbolCountForZuulonEnsure11 () {
+		assertEquals(this.generator.getValidSymbolCount("Zuulon"), 11);
+	}
+	
+	@Test
+	public void testGetValidSymbolCountForEmptyElementEnsure0 () {
+		assertEquals(this.generator.getValidSymbolCount(""), 0);
+	}
 }
