@@ -17,6 +17,7 @@ repositories {
 
 dependencies {
     compile group: 'commons-collections', name: 'commons-collections', version: '3.2'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'
     compile 'org.springframework:spring-core:4.3.2.RELEASE'
     compile 'org.springframework:spring-beans:4.3.2.RELEASE'
     compile 'org.springframework:spring-context:4.3.2.RELEASE'

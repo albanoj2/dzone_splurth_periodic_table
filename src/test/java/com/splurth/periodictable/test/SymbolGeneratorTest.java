@@ -1,5 +1,6 @@
 package com.splurth.periodictable.test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -20,52 +21,67 @@ public class SymbolGeneratorTest {
 	private SymbolGenerator generator;
 	
 	@Test
-	public void testSpengleriumElementEeSymbolEnsureValid () {
+	public void testSymbolVerificationSpengleriumElementEeSymbolEnsureValid () {
 		assertTrue(this.generator.isSymbolValid("Spenglerium", "Ee"));
 	}
 	
 	@Test
-	public void testEmptyElementAndEmptySymbolEnsureInvalid () {
+	public void testSymbolVerificationEmptyElementAndEmptySymbolEnsureInvalid () {
 		assertFalse(this.generator.isSymbolValid("", ""));
 	}
 	
 	@Test
-	public void testEmptyElementAndNonemptySymbolEnsureInvalid () {
+	public void testSymbolVerificationEmptyElementAndNonemptySymbolEnsureInvalid () {
 		assertFalse(this.generator.isSymbolValid("", "Tt"));
 	}
 	
 	@Test
-	public void testNonemptyElementAndEmptySymbolEnsureInvalid () {
+	public void testSymbolVerificationNonemptyElementAndEmptySymbolEnsureInvalid () {
 		assertFalse(this.generator.isSymbolValid("Something", ""));
 	}
 	
 	@Test
-	public void testOneLetterSymbolEnsureInvalid () {
+	public void testSymbolVerificationOneLetterSymbolEnsureInvalid () {
 		assertFalse(this.generator.isSymbolValid("Something", "S"));
 	}
 	
 	@Test
-	public void testZeddemoriumElementZrSymbolEnsureValid () {
+	public void testSymbolVerificationZeddemoriumElementZrSymbolEnsureValid () {
 		assertTrue(this.generator.isSymbolValid("Zeddemorium", "Zr"));
 	}
 	
 	@Test
-	public void testVenkmineElementKnSymbolEnsureValid () {
+	public void testSymbolVerificationVenkmineElementKnSymbolEnsureValid () {
 		assertTrue(this.generator.isSymbolValid("Venkmine", "Kn"));
 	}
 	
 	@Test
-	public void testStantzonElementZtSymbolEnsureInvalid () {
+	public void testSymbolVerificationStantzonElementZtSymbolEnsureInvalid () {
 		assertFalse(this.generator.isSymbolValid("Stantzon", "Zt"));
 	}
 	
 	@Test
-	public void testMelintzumElementNnSymbolEnsureInvalid () {
+	public void testSymbolVerificationMelintzumElementNnSymbolEnsureInvalid () {
 		assertFalse(this.generator.isSymbolValid("Melintzum", "Nn"));
 	}
 	
 	@Test
-	public void testTulliumElementTySymbolEnsureInvalid () {
+	public void testSymbolVerificationTulliumElementTySymbolEnsureInvalid () {
 		assertFalse(this.generator.isSymbolValid("Tullium", "Ty"));
+	}
+	
+	@Test
+	public void testGetFirstValidSymbolForGozeriumElementEnsureEi () {
+		assertEquals(this.generator.getFirstValidSymbol("Gozerium"), "Ei");
+	}
+	
+	@Test
+	public void testGetFirstValidSymbolForSlimyrineElementEnsureIe () {
+		assertEquals(this.generator.getFirstValidSymbol("Slimyrine"), "Ie");
+	}
+	
+	@Test
+	public void testGetFirstValidSymbolForInvalidElementEnsureEmptyString () {
+		assertEquals(this.generator.getFirstValidSymbol("X"), "");
 	}
 }
