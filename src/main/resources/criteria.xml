@@ -10,7 +10,7 @@
 	<bean id="appearInElementCriterion" class="com.splurth.periodictable.criteria.AppearInElementCriterion"/>
 	<bean id="orderedSymbolLettersCriterion" class="com.splurth.periodictable.criteria.OrderedSymbolLettersCriterion"/>
 
-    <bean id="symbolVerifier" class="com.splurth.periodictable.SymbolVerifier">
+    <bean id="symbolGenerator" class="com.splurth.periodictable.SymbolGenerator">
     	<constructor-arg name="criteria">
     		<list>
             	<ref bean="twoLettersCriterion" />
