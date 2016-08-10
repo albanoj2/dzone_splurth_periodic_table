@@ -8,7 +8,7 @@ public class Application {
 	public static void main(String[] args) {
 		@SuppressWarnings("resource")
 		ApplicationContext context = new ClassPathXmlApplicationContext("criteria.xml");
-		SymbolVerifier verifier = context.getBean(SymbolVerifier.class);
+		SymbolGenerator verifier = context.getBean(SymbolGenerator.class);
 		
 		String element = "Spenglerium";
 		String symbol = "Ee";
